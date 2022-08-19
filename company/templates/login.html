@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <center><h1>Login</h1></center>
+    <p><a href="{% url 'home' %} " >Register</a></p>
+    <center>
+    <form method="POST" action="{% url 'loged' %} ">
+    {%csrf_token%}
+        <table>
+            <tr>
+                <td>Name:</td>
+                {% for i in f %}
+                    {%if i.name == "name" %}
+                        <td>{{i}}</td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Password:</td>
+                {% for i in f %}
+                    {% if i.name == "password" %}
+                <td>{{i}}</td>
+                    {% endif%}
+                {% endfor %}
+            </tr>
+            <tr>
+                <th><input type="submit" value="Login"></th>
+                <th><input type="reset" value="Reset"></th>
+            </tr>
+            <tr>
+                <th colspan="2">{{msg}}</th>
+            </tr>
+        </table>
+    </form>
+    </center>
+
+    
+</body>
+</html>
